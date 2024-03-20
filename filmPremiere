@@ -1,0 +1,50 @@
+function filmPremiere(arg1, arg2, arg3) {
+    let projection = arg1;
+    let movie = arg2;
+    let ticketsCount = Number(arg3);
+    let totalPrice = 0;
+ 
+    
+    switch (projection) {
+        case "John Wick":
+            switch (movie) {
+                case "Drink":
+                    totalPrice = 12;
+                case "Popcorn":
+                    totalPrice = 15;
+                case "Menu":
+                    totalPrice = 19;
+                    break;
+            }
+        case "Star Wars":
+            switch (movie) {
+                case "Drink":
+                    totalPrice = ticketsCount * 18;
+                case "Popcorn":
+                    totalPrice = ticketsCount * 25;
+                case "Menu":
+                    totalPrice = ticketsCount * 30;
+                    break;
+            }    
+        case "Jumanji":
+            switch (movie) {
+                case "Drink":
+                    totalPrice =  ticketsCount * 9;
+                case "Popcorn":
+                    totalPrice = ticketsCount * 11;
+                case "Menu":
+                    totalPrice = ticketsCount * 14;
+                    break;
+            }       
+            break;
+    }
+ 
+    if (projection === "Star Wars" && ticketsCount >= 4) {
+        totalPrice = totalPrice * 0.70;
+    } else if (projection === "Jumanji" && ticketsCount == 2) {
+        totalPrice = totalPrice * 0.85;
+    }
+    console.log(`Your bill is ${(totalPrice).toFixed(2)} leva.`);
+}
+ 
+filmPremiere("John Wick", "Drink", "6");
